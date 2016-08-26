@@ -16,7 +16,7 @@ Currently, only AirPort Express emulation is supported.**
 1. [Installation](#installation)
 1. [Airport.key File](#airport.key)
 1. [Usage](#usage)
-1. [Development](#development) 
+1. [Development](#development)
   * [Components](#components)
   * [Source Locations](#source-locations)
 1. [Disclaimer](#disclaimer)
@@ -160,7 +160,7 @@ server should show as an AirPort Express on your iOS devices and Mac OS X comput
 - **-a, --apname=AirPort** - Sets Airport name (*Default: Shairplay*)
 - **-p, --password=secret**  - Sets password
 - **-o, --server_port=5000** - Sets port for RAOP service
-- **-h, --help** - Help 
+- **-h, --help** - Help
 - **--hwaddr=address** - Sets the MAC address, useful if running multiple instances
 - **--ao_driver=driver** - Sets the ao driver
 - **--ao_devicename=devicename** - Sets the ao device name
