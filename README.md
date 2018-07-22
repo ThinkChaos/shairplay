@@ -1,6 +1,6 @@
 # Shairplay
 
-Free, portable AirPlay Server implementation similar to [ShairPort](https://github.com/abrasive/shairport).  
+Free, portable AirPlay Server implementation similar to [ShairPort](https://github.com/abrasive/shairport).
 Currently, only AirPort Express emulation is supported.
 
 ## Table of Contents
@@ -156,14 +156,16 @@ server should show as an AirPort Express on your iOS devices and Mac OS X comput
 
 ### Options
 
-- **-a, --apname=AirPort** - Sets Airport name (*Default: Shairplay*)
-- **-p, --password=secret**  - Sets password
-- **-o, --server_port=5000** - Sets port for RAOP service
-- **-h, --help** - Help
-- **--hwaddr=address** - Sets the MAC address, useful if running multiple instances
-- **--ao_driver=driver** - Sets the ao driver
-- **--ao_devicename=devicename** - Sets the ao device name
-- **--ao_deviceid=id** - Sets the ao device id
+| Option | Description |
+| :----- | :---------- |
+| -a, --apname=AirPort | Sets Airport name (*Default: Shairplay*) |
+| -p, --password=secret | Sets password |
+| -o, --server_port=5000 | Sets port for RAOP service |
+| --hwaddr=address | Sets the MAC address, useful if running multiple instances |
+| --ao_driver=driver | Sets the ao driver |
+| --ao_devicename=devicename | Sets the ao device name |
+| --ao_deviceid=id | Sets the ao device id |
+| -h, --help | Help |
 
 
 Example:
