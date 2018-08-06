@@ -97,28 +97,21 @@ httpd_destroy(httpd_t *httpd)
 	}
 }
 
+static void httpd_remove_connection(httpd_t *httpd, http_connection_t *connection);
+
 static void
 httpd_add_connection(httpd_t *httpd, int fd, unsigned char *local, int local_len, unsigned char *remote, int remote_len)
 {
-	int i;
+	http_connection_t *conn = httpd->connections[0];
 
-	for (i=0; i<httpd->max_connections; i++) {
-		if (!httpd->connections[i].connected) {
-			break;
-		}
-	}
-	if (i == httpd->max_connections) {
-		/* This code should never be reached, we do not select server_fds when full */
-		logger_log(httpd->logger, LOGGER_INFO, "Max connections reached");
-		shutdown(fd, SHUT_RDWR);
-		closesocket(fd);
-		return;
+	if (conn->connected) {
+		httpd_remove_connection(httpd, conn);
 	}
 
 	httpd->open_connections++;
-	httpd->connections[i].socket_fd = fd;
-	httpd->connections[i].connected = 1;
-	httpd->connections[i].user_data = httpd->callbacks.conn_init(httpd->callbacks.opaque, local, local_len, remote, remote_len);
+	conn->socket_fd = fd;
+	conn->connected = 1;
+	conn->user_data = httpd->callbacks.conn_init(httpd->callbacks.opaque, local, local_len, remote, remote_len);
 }
 
 static int

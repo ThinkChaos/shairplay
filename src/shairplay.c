@@ -350,7 +350,8 @@ main(int argc, char *argv[])
 	raop_cbs.audio_destroy = audio_destroy;
 	raop_cbs.audio_set_volume = audio_set_volume;
 
-	raop = raop_init_from_keyfile(10, &raop_cbs, "airport.key", NULL);
+	// max_conns = 2: allow a second device to connect and an existing one (which gets disconnected)
+	raop = raop_init_from_keyfile(2, &raop_cbs, "airport.key", NULL);
 	if (raop == NULL) {
 		fprintf(stderr, "Could not initialize the RAOP service\n");
 		fprintf(stderr, "Please make sure the airport.key file is in the current directory.\n");
